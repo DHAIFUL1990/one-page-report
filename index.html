@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Page Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo Sekolah" id="logo">
+        <h1>One Page Report</h1>
+    </header>
+
+    <main>
+        <form id="reportForm">
+            <label>Nama Pelajar:</label>
+            <input type="text" name="nama" required>
+
+            <label>Program:</label>
+            <input type="text" name="program" required>
+
+            <label>Gambar:</label>
+            <input type="file" name="gambar" accept="image/*">
+
+            <button type="button" onclick="generateReport()">Jana One Page Report</button>
+        </form>
+
+        <div id="preview">
+            <!-- Preview report akan keluar sini -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
