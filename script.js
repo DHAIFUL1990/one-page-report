@@ -2,7 +2,6 @@ function generateReport() {
     const form = document.getElementById('reportForm');
     const preview = document.getElementById('preview');
 
-    // Ambil semua data dari borang
     const data = {
         program: form.program.value,
         tarikh: form.tarikh.value,
@@ -15,13 +14,11 @@ function generateReport() {
         gambar: []
     };
 
-    // Ambil 4 gambar
     for (let i = 1; i <= 4; i++) {
         const file = form['gambar' + i].files[0];
         if (file) data.gambar.push(file);
     }
 
-    // Preview dengan gambar
     if (data.gambar.length > 0) {
         let loaded = 0;
         const gambarSrc = [];
@@ -43,7 +40,7 @@ function generateReport() {
 function showPreview(data, gambarSrc) {
     const preview = document.getElementById('preview');
     let html = `
-        <!-- Header Sekolah dengan 2 logo -->
+        <!-- Header Sekolah -->
         <div class="school-header">
             <img src="images/logo.png" alt="Logo Sekolah" class="logo">
             <div class="school-text">
@@ -64,7 +61,6 @@ function showPreview(data, gambarSrc) {
         <p><strong>Ulasan:</strong> ${data.ulasan}</p>
     `;
 
-    // Preview gambar dalam grid
     if (gambarSrc.length > 0) {
         html += '<h3>Gambar:</h3><div class="gambar-grid">';
         gambarSrc.forEach(src => html += `<img src="${src}" alt="Gambar">`);
