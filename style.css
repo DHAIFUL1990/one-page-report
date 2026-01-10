@@ -9,7 +9,7 @@ body {
 main {
     padding: 20px;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 20px auto;
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
@@ -81,22 +81,26 @@ form button:hover {
     justify-content: center;
     gap: 15px;
     text-align: center;
-    margin-bottom: 20px;
+    background: #004080; /* background biru */
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    flex-wrap: wrap;
 }
 
 .school-header .logo {
-    max-width: 80px;
-    height: auto;
+    height: 60px;   /* kedua logo sama tinggi */
+    width: auto;
 }
 
 .school-header .school-text h2 {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .school-header .school-text p {
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* Print hanya preview */
@@ -109,8 +113,5 @@ form button:hover {
 /* Responsive */
 @media (max-width: 500px) {
     main { padding: 15px; }
-    .school-header {
-        flex-direction: column;
-        gap: 10px;
-    }
+    .school-header { flex-direction: column; gap: 10px; }
 }
