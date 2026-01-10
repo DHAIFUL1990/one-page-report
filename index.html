@@ -14,14 +14,41 @@
 
     <main>
         <form id="reportForm">
-            <label>Nama Pelajar:</label>
-            <input type="text" name="nama" required>
-
-            <label>Program:</label>
+            <label>Nama Program:</label>
             <input type="text" name="program" required>
 
-            <label>Gambar:</label>
-            <input type="file" name="gambar" accept="image/*">
+            <label>Tarikh:</label>
+            <input type="date" name="tarikh" required>
+
+            <label>Masa:</label>
+            <input type="time" name="masa" required>
+
+            <label>Tempat:</label>
+            <input type="text" name="tempat" required>
+
+            <label>Anjuran:</label>
+            <input type="text" name="anjuran" required>
+
+            <label>Objektif:</label>
+            <textarea name="objektif" rows="3" required></textarea>
+
+            <label>Penglibatan:</label>
+            <textarea name="penglibatan" rows="3" required></textarea>
+
+            <label>Ulasan:</label>
+            <textarea name="ulasan" rows="3" required></textarea>
+
+            <label>Gambar 1:</label>
+            <input type="file" name="gambar1" accept="image/*">
+
+            <label>Gambar 2:</label>
+            <input type="file" name="gambar2" accept="image/*">
+
+            <label>Gambar 3:</label>
+            <input type="file" name="gambar3" accept="image/*">
+
+            <label>Gambar 4:</label>
+            <input type="file" name="gambar4" accept="image/*">
 
             <button type="button" onclick="generateReport()">Jana One Page Report</button>
         </form>
