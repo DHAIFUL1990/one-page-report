@@ -18,12 +18,10 @@ function generateReport() {
     // Ambil 4 gambar
     for (let i = 1; i <= 4; i++) {
         const file = form['gambar' + i].files[0];
-        if (file) {
-            data.gambar.push(file);
-        }
+        if (file) data.gambar.push(file);
     }
 
-    // Kalau ada gambar, baca sebagai DataURL
+    // Preview dengan gambar
     if (data.gambar.length > 0) {
         let loaded = 0;
         const gambarSrc = [];
@@ -33,9 +31,7 @@ function generateReport() {
             reader.onload = function(e) {
                 gambarSrc[index] = e.target.result;
                 loaded++;
-                if (loaded === data.gambar.length) {
-                    showPreview(data, gambarSrc);
-                }
+                if (loaded === data.gambar.length) showPreview(data, gambarSrc);
             };
             reader.readAsDataURL(file);
         });
@@ -58,17 +54,12 @@ function showPreview(data, gambarSrc) {
         <p><strong>Ulasan:</strong> ${data.ulasan}</p>
     `;
 
-    // Preview gambar dalam grid
     if (gambarSrc.length > 0) {
-        html += '<h3>Gambar:</h3>';
-        html += '<div class="gambar-grid">';
-        gambarSrc.forEach(src => {
-            html += `<img src="${src}" alt="Gambar">`;
-        });
+        html += '<h3>Gambar:</h3><div class="gambar-grid">';
+        gambarSrc.forEach(src => html += `<img src="${src}" alt="Gambar">`);
         html += '</div>';
     }
 
     html += `<button onclick="window.print()">Cetak / Save PDF</button>`;
-
     preview.innerHTML = html;
 }
