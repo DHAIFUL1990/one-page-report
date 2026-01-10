@@ -1,55 +1,40 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f2f5; /* soft grey background */
-    color: #333;
-}
-
-main {
-    padding: 20px;
-    max-width: 750px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-/* Form styling */
-form label {
-    display: block;
-    margin-top: 10px;
+/* Tajuk utama laporan */
+.main-title {
+    text-align: center;
+    font-size: 24px;
     font-weight: bold;
+    margin: 15px 0;
+    text-decoration: underline;
 }
 
-form input[type="text"],
-form input[type="date"],
-form input[type="time"],
-form textarea,
-form input[type="file"] {
+/* Grid gambar */
+.gambar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gambar-wrapper {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    height: 150px; /* pastikan semua sama tinggi */
+    overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-form textarea { resize: vertical; }
-
-form button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #004080;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.gambar-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* pastikan gambar penuh dalam kotak */
+    border-radius: 4px;
 }
 
-form button:hover { background: #0066cc; }
-
-/* Header Sekolah */
+/* Header sekolah sama cantik */
 .school-header {
     display: flex;
     align-items: center;
@@ -80,38 +65,6 @@ form button:hover { background: #0066cc; }
     font-size: 12px;
 }
 
-/* Preview laporan cantik */
-#preview {
-    margin-top: 20px;
-    border-top: 2px solid #ccc;
-    padding-top: 15px;
-}
-
-#preview h2 {
-    text-align: center;
-    text-decoration: underline;
-    margin-bottom: 10px;
-}
-
-#preview p {
-    margin: 5px 0;
-}
-
-/* Gambar grid dengan border lembut */
-.gambar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.gambar-grid img {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 2px;
-    background: #f9f9f9;
-}
-
 /* Print hanya preview */
 @media print {
     body * { visibility: hidden; }
@@ -123,4 +76,5 @@ form button:hover { background: #0066cc; }
 @media (max-width: 500px) {
     main { padding: 15px; }
     .school-header { flex-direction: column; gap: 10px; }
+    .gambar-wrapper { height: 120px; }
 }
