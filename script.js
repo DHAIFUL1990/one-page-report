@@ -43,6 +43,16 @@ function generateReport() {
 function showPreview(data, gambarSrc) {
     const preview = document.getElementById('preview');
     let html = `
+        <!-- Header Sekolah dengan 2 logo -->
+        <div class="school-header">
+            <img src="images/logo.png" alt="Logo Sekolah" class="logo">
+            <div class="school-text">
+                <h2>SK LUBOK TERUA</h2>
+                <p>28500 LANCHANG, PAHANG DARUL MAKMUR</p>
+            </div>
+            <img src="images/logo2.png" alt="Logo Tambahan" class="logo">
+        </div>
+
         <h2>Laporan Program</h2>
         <p><strong>Nama Program:</strong> ${data.program}</p>
         <p><strong>Tarikh:</strong> ${data.tarikh}</p>
@@ -54,6 +64,7 @@ function showPreview(data, gambarSrc) {
         <p><strong>Ulasan:</strong> ${data.ulasan}</p>
     `;
 
+    // Preview gambar dalam grid
     if (gambarSrc.length > 0) {
         html += '<h3>Gambar:</h3><div class="gambar-grid">';
         gambarSrc.forEach(src => html += `<img src="${src}" alt="Gambar">`);
