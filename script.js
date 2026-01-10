@@ -1,46 +1,7 @@
-function generateReport() {
-    const form = document.getElementById('reportForm');
-    const preview = document.getElementById('preview');
-
-    const data = {
-        program: form.program.value,
-        tarikh: form.tarikh.value,
-        masa: form.masa.value,
-        tempat: form.tempat.value,
-        anjuran: form.anjuran.value,
-        objektif: form.objektif.value,
-        penglibatan: form.penglibatan.value,
-        ulasan: form.ulasan.value,
-        gambar: []
-    };
-
-    for (let i = 1; i <= 4; i++) {
-        const file = form['gambar' + i].files[0];
-        if (file) data.gambar.push(file);
-    }
-
-    if (data.gambar.length > 0) {
-        let loaded = 0;
-        const gambarSrc = [];
-
-        data.gambar.forEach((file, index) => {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                gambarSrc[index] = e.target.result;
-                loaded++;
-                if (loaded === data.gambar.length) showPreview(data, gambarSrc);
-            };
-            reader.readAsDataURL(file);
-        });
-    } else {
-        showPreview(data, []);
-    }
-}
-
 function showPreview(data, gambarSrc) {
     const preview = document.getElementById('preview');
     let html = `
-        <!-- Header sekolah cantik -->
+        <!-- Header sekolah -->
         <div class="school-header">
             <img src="images/logo.png" alt="Logo Sekolah" class="logo">
             <div class="school-text">
@@ -49,6 +10,9 @@ function showPreview(data, gambarSrc) {
             </div>
             <img src="images/logo2.png" alt="Logo Tambahan" class="logo">
         </div>
+
+        <!-- Tajuk utama -->
+        <h1 class="main-title">ONE PAGE REPORT</h1>
 
         <h2>Laporan Program</h2>
         <p><strong>Nama Program:</strong> ${data.program}</p>
@@ -61,9 +25,12 @@ function showPreview(data, gambarSrc) {
         <p><strong>Ulasan:</strong> ${data.ulasan}</p>
     `;
 
+    // Gambar dalam grid 2x2
     if (gambarSrc.length > 0) {
         html += '<h3>Gambar:</h3><div class="gambar-grid">';
-        gambarSrc.forEach(src => html += `<img src="${src}" alt="Gambar">`);
+        gambarSrc.forEach(src => {
+            html += `<div class="gambar-wrapper"><img src="${src}" alt="Gambar"></div>`;
+        });
         html += '</div>';
     }
 
