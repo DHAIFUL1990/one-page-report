@@ -40,7 +40,7 @@ function generateReport() {
 function showPreview(data, gambarSrc) {
     const preview = document.getElementById('preview');
     let html = `
-        <!-- Header Sekolah -->
+        <!-- Header sekolah cantik -->
         <div class="school-header">
             <img src="images/logo.png" alt="Logo Sekolah" class="logo">
             <div class="school-text">
