@@ -6,19 +6,6 @@ body {
     color: #333;
 }
 
-header {
-    background: #004080;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-header img#logo {
-    max-width: 80px;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
 main {
     padding: 20px;
     max-width: 700px;
@@ -66,7 +53,7 @@ form button:hover {
     background: #0066cc;
 }
 
-/* Preview styles */
+/* Preview */
 #preview {
     margin-top: 20px;
     border-top: 1px solid #ccc;
@@ -79,7 +66,7 @@ form button:hover {
     border-radius: 4px;
 }
 
-/* Grid 4 gambar */
+/* Grid gambar */
 .gambar-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -87,14 +74,43 @@ form button:hover {
     margin-top: 10px;
 }
 
-/* Print only preview */
+/* Header sekolah 2 logo */
+.school-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.school-header .logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.school-header .school-text h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.school-header .school-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Print hanya preview */
 @media print {
     body * { visibility: hidden; }
     #preview, #preview * { visibility: visible; }
     #preview { position: absolute; top: 0; left: 0; width: 100%; }
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 500px) {
     main { padding: 15px; }
+    .school-header {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
