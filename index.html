@@ -1,55 +1,68 @@
-<main>
-    <!-- Header Sekolah dengan 2 logo -->
-    <div class="school-header">
-        <img src="images/logo.png" alt="Logo Sekolah" class="logo">
-        <div class="school-text">
-            <h2>SK LUBOK TERUA</h2>
-            <p>28500 LANCHANG, PAHANG DARUL MAKMUR</p>
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Page Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Header Sekolah -->
+        <div class="school-header">
+            <img src="images/logo.png" alt="Logo Sekolah" class="logo">
+            <div class="school-text">
+                <h2>SK LUBOK TERUA</h2>
+                <p>28500 LANCHANG, PAHANG DARUL MAKMUR</p>
+            </div>
+            <img src="images/logo2.png" alt="Logo Tambahan" class="logo">
         </div>
-        <img src="images/logo2.png" alt="Logo Tambahan" class="logo">
-    </div>
 
-    <form id="reportForm">
-        <label>Nama Program:</label>
-        <input type="text" name="program" required>
+        <form id="reportForm">
+            <label>Nama Program:</label>
+            <input type="text" name="program" required>
 
-        <label>Tarikh:</label>
-        <input type="date" name="tarikh" required>
+            <label>Tarikh:</label>
+            <input type="date" name="tarikh" required>
 
-        <label>Masa:</label>
-        <input type="time" name="masa" required>
+            <label>Masa:</label>
+            <input type="time" name="masa" required>
 
-        <label>Tempat:</label>
-        <input type="text" name="tempat" required>
+            <label>Tempat:</label>
+            <input type="text" name="tempat" required>
 
-        <label>Anjuran:</label>
-        <input type="text" name="anjuran" required>
+            <label>Anjuran:</label>
+            <input type="text" name="anjuran" required>
 
-        <label>Objektif:</label>
-        <textarea name="objektif" rows="3" required></textarea>
+            <label>Objektif:</label>
+            <textarea name="objektif" rows="3" required></textarea>
 
-        <label>Penglibatan:</label>
-        <textarea name="penglibatan" rows="3" required></textarea>
+            <label>Penglibatan:</label>
+            <textarea name="penglibatan" rows="3" required></textarea>
 
-        <label>Ulasan:</label>
-        <textarea name="ulasan" rows="3" required></textarea>
+            <label>Ulasan:</label>
+            <textarea name="ulasan" rows="3" required></textarea>
 
-        <label>Gambar 1:</label>
-        <input type="file" name="gambar1" accept="image/*">
+            <label>Gambar 1:</label>
+            <input type="file" name="gambar1" accept="image/*">
 
-        <label>Gambar 2:</label>
-        <input type="file" name="gambar2" accept="image/*">
+            <label>Gambar 2:</label>
+            <input type="file" name="gambar2" accept="image/*">
 
-        <label>Gambar 3:</label>
-        <input type="file" name="gambar3" accept="image/*">
+            <label>Gambar 3:</label>
+            <input type="file" name="gambar3" accept="image/*">
 
-        <label>Gambar 4:</label>
-        <input type="file" name="gambar4" accept="image/*">
+            <label>Gambar 4:</label>
+            <input type="file" name="gambar4" accept="image/*">
 
-        <button type="button" onclick="generateReport()">Jana One Page Report</button>
-    </form>
+            <button type="button" onclick="generateReport()">Jana One Page Report</button>
+        </form>
 
-    <div id="preview">
-        <!-- Preview laporan akan muncul di sini -->
-    </div>
-</main>
+        <div id="preview">
+            <!-- Preview laporan akan muncul di sini -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
