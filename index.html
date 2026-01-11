@@ -2,67 +2,72 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Page Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <!-- Header Sekolah -->
-        <div class="school-header">
-            <img src="images/logo.png" alt="Logo Sekolah" class="logo">
-            <div class="school-text">
-                <h2>SK LUBOK TERUA</h2>
-                <p>28500 LANCHANG, PAHANG DARUL MAKMUR</p>
-            </div>
-            <img src="images/logo2.png" alt="Logo Tambahan" class="logo">
+
+<main>
+
+    <!-- HEADER SEKOLAH -->
+    <div class="school-header">
+        <img src="images/logo.png" class="logo" alt="Logo Sekolah">
+        <div class="school-text">
+            <h2>SK LUBOK TERUA</h2>
+            <p>28500 LANCHANG, PAHANG DARUL MAKMUR</p>
         </div>
+        <img src="images/logo2.png" class="logo" alt="Logo Tambahan">
+    </div>
 
-        <form id="reportForm">
-            <label>Nama Program:</label>
-            <input type="text" name="program" required>
+    <!-- TAJUK WEBPAGE -->
+    <h1 class="page-title">ONE PAGE REPORT</h1>
+    <p class="page-subtitle">Laporan Program Sekolah (Satu Halaman)</p>
 
-            <label>Tarikh:</label>
-            <input type="date" name="tarikh" required>
+    <!-- BORANG -->
+    <form id="reportForm">
 
-            <label>Masa:</label>
-            <input type="time" name="masa" required>
+        <label>Nama Program</label>
+        <input type="text" name="program" required>
 
-            <label>Tempat:</label>
-            <input type="text" name="tempat" required>
+        <label>Tarikh</label>
+        <input type="date" name="tarikh" required>
 
-            <label>Anjuran:</label>
-            <input type="text" name="anjuran" required>
+        <label>Masa</label>
+        <input type="time" name="masa" required>
 
-            <label>Objektif:</label>
-            <textarea name="objektif" rows="3" required></textarea>
+        <label>Tempat</label>
+        <input type="text" name="tempat" required>
 
-            <label>Penglibatan:</label>
-            <textarea name="penglibatan" rows="3" required></textarea>
+        <label>Anjuran</label>
+        <input type="text" name="anjuran" required>
 
-            <label>Ulasan:</label>
-            <textarea name="ulasan" rows="3" required></textarea>
+        <label>Objektif</label>
+        <textarea name="objektif" rows="3" required></textarea>
 
-            <label>Gambar 1:</label>
-            <input type="file" name="gambar1" accept="image/*">
+        <label>Penglibatan</label>
+        <textarea name="penglibatan" rows="3" required></textarea>
 
-            <label>Gambar 2:</label>
-            <input type="file" name="gambar2" accept="image/*">
+        <label>Ulasan</label>
+        <textarea name="ulasan" rows="3" required></textarea>
 
-            <label>Gambar 3:</label>
-            <input type="file" name="gambar3" accept="image/*">
+        <label>Gambar (maksimum 4)</label>
+        <input type="file" name="gambar1" accept="image/*">
+        <input type="file" name="gambar2" accept="image/*">
+        <input type="file" name="gambar3" accept="image/*">
+        <input type="file" name="gambar4" accept="image/*">
 
-            <label>Gambar 4:</label>
-            <input type="file" name="gambar4" accept="image/*">
+        <button type="button" onclick="generateReport()">
+            Jana One Page Report
+        </button>
 
-            <button type="button" onclick="generateReport()">Jana One Page Report</button>
-        </form>
+    </form>
 
-        <div id="preview">
-            <!-- Preview laporan akan muncul di sini -->
-        </div>
-    </main>
+    <!-- PREVIEW LAPORAN -->
+    <div id="preview"></div>
 
-    <script src="script.js"></script>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
