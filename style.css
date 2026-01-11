@@ -7,7 +7,7 @@ body {
 main {
     max-width: 800px;
     margin: 20px auto;
-    background: #fff;
+    background: white;
     padding: 20px;
     border-radius: 10px;
 }
@@ -15,30 +15,30 @@ main {
 /* Header */
 .school-header {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     background: #004080;
     color: white;
     padding: 12px;
     border-radius: 8px;
-    flex-wrap: wrap;
 }
 
 .logo {
-    height: 60px;
+    height: 55px;
     object-fit: contain;
 }
 
 .school-text h2 { margin: 0; }
 .school-text p { margin: 0; font-size: 12px; }
 
-/* Tajuk Web */
-.page-title {
+/* Titles */
+.page-title, .main-title {
     text-align: center;
-    margin: 15px 0 5px;
     color: #004080;
+    margin: 15px 0 5px;
 }
+
 .page-subtitle {
     text-align: center;
     margin-bottom: 20px;
@@ -50,23 +50,21 @@ form {
     gap: 10px;
 }
 
-form input, form textarea {
+input, textarea {
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-form button {
+button {
     background: #004080;
     color: white;
-    border: none;
     padding: 10px;
+    border: none;
     border-radius: 5px;
 }
 
-/* ===============================
-   LAPORAN FORMAL + CORAK
-================================ */
+/* REPORT */
 .report-box {
     background: repeating-linear-gradient(
         45deg,
@@ -77,27 +75,27 @@ form button {
     );
     border: 2px solid #004080;
     border-radius: 10px;
-    padding: 20px;
+    padding: 18px;
     margin-top: 30px;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 
-.main-title {
-    text-align: center;
-    text-decoration: underline;
-    margin: 10px 0;
+.info-grid p {
+    margin: 3px 0;
 }
 
+/* Images */
 .gambar-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 .gambar-wrapper {
-    height: 130px;
-    border: 1px solid #ccc;
+    height: 110px;
     overflow: hidden;
+    border: 1px solid #ccc;
 }
 
 .gambar-wrapper img {
@@ -106,16 +104,32 @@ form button {
     object-fit: cover;
 }
 
-/* Butang */
-.action-bar {
-    text-align: center;
-    margin-top: 15px;
-}
-
-/* PRINT */
+/* Print */
 @media print {
-    body * { visibility: hidden; }
-    #preview, #preview * { visibility: visible; }
-    button { display: none !important; }
-    #preview { position: absolute; top: 0; width: 100%; }
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    #preview, #preview * {
+        visibility: visible;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .action-bar {
+        display: none !important;
+    }
 }
