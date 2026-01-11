@@ -14,25 +14,27 @@ function generateReport() {
         ulasan: f.ulasan.value
     };
 
-    let files = [];
-    for (let i = 1; i <= 4; i++) {
-        if (f["gambar" + i].files[0]) {
-            files.push(f["gambar" + i].files[0]);
-        }
-    }
+    const files = Array.from(f.gambar.files);
 
-    if (files.length === 0) {
+    // LOCK: maksimum 4 gambar dipaparkan
+    const selectedFiles = files.slice(0, 4);
+
+    if (selectedFiles.length === 0) {
         renderReport(data, []);
         return;
     }
 
-    let images = [], loaded = 0;
-    files.forEach((file, i) => {
+    let images = [];
+    let loaded = 0;
+
+    selectedFiles.forEach((file, i) => {
         const reader = new FileReader();
         reader.onload = e => {
             images[i] = e.target.result;
             loaded++;
-            if (loaded === files.length) renderReport(data, images);
+            if (loaded === selectedFiles.length) {
+                renderReport(data, images);
+            }
         };
         reader.readAsDataURL(file);
     });
@@ -54,11 +56,13 @@ function renderReport(data, images) {
 
         <h1 class="main-title">ONE PAGE REPORT</h1>
 
-        <p><strong>Nama Program:</strong> ${data.program}</p>
-        <p><strong>Tarikh:</strong> ${data.tarikh}</p>
-        <p><strong>Masa:</strong> ${data.masa}</p>
-        <p><strong>Tempat:</strong> ${data.tempat}</p>
-        <p><strong>Anjuran:</strong> ${data.anjuran}</p>
+        <div class="info-grid">
+            <p><strong>Nama Program:</strong> ${data.program}</p>
+            <p><strong>Tarikh:</strong> ${data.tarikh}</p>
+            <p><strong>Masa:</strong> ${data.masa}</p>
+            <p><strong>Tempat:</strong> ${data.tempat}</p>
+            <p><strong>Anjuran:</strong> ${data.anjuran}</p>
+        </div>
 
         <p><strong>Objektif:</strong><br>${data.objektif}</p>
         <p><strong>Penglibatan:</strong><br>${data.penglibatan}</p>
@@ -66,8 +70,9 @@ function renderReport(data, images) {
     `;
 
     if (images.length > 0) {
-        html += `<h3>Dokumentasi Bergambar</h3>
-                 <div class="gambar-grid">`;
+        html += `
+        <h3>Dokumentasi Bergambar</h3>
+        <div class="gambar-grid">`;
         images.forEach(img => {
             html += `<div class="gambar-wrapper"><img src="${img}"></div>`;
         });
