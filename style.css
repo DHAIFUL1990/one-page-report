@@ -1,32 +1,23 @@
-/* ===============================
-   GLOBAL
-================================ */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
     background: #f0f2f5;
-    color: #333;
+    margin: 0;
 }
 
 main {
     max-width: 800px;
     margin: 20px auto;
-    background: #ffffff;
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-/* ===============================
-   HEADER SEKOLAH (FORM + PREVIEW)
-================================ */
+/* Header */
 .school-header {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 15px;
-    text-align: center;
     background: #004080;
     color: white;
     padding: 12px;
@@ -34,132 +25,79 @@ main {
     flex-wrap: wrap;
 }
 
-.school-header .logo {
+.logo {
     height: 60px;
-    width: auto;
     object-fit: contain;
 }
 
-.school-header .school-text h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+.school-text h2 { margin: 0; }
+.school-text p { margin: 0; font-size: 12px; }
+
+/* Tajuk Web */
+.page-title {
+    text-align: center;
+    margin: 15px 0 5px;
+    color: #004080;
+}
+.page-subtitle {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.school-header .school-text p {
-    margin: 0;
-    font-size: 12px;
-}
-
-/* ===============================
-   BORANG ISI MAKLUMAT (KEMAS)
-================================ */
+/* Form */
 form {
-    margin-top: 20px;
     display: grid;
-    grid-template-columns: 1fr;
     gap: 10px;
 }
 
-form label {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="time"],
-form input[type="file"],
-form textarea {
-    width: 100%;
+form input, form textarea {
     padding: 8px;
-    font-size: 14px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-form textarea {
-    resize: vertical;
 }
 
 form button {
-    margin-top: 10px;
-    padding: 10px;
     background: #004080;
     color: white;
     border: none;
+    padding: 10px;
     border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #0066cc;
-}
-
-/* Desktop / tablet layout */
-@media (min-width: 600px) {
-    form {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 15px;
-    }
-
-    form textarea,
-    form input[type="file"],
-    form button {
-        grid-column: span 2;
-    }
 }
 
 /* ===============================
-   PREVIEW LAPORAN
+   LAPORAN FORMAL + CORAK
 ================================ */
-#preview {
+.report-box {
+    background: repeating-linear-gradient(
+        45deg,
+        #f5f7fa,
+        #f5f7fa 12px,
+        #ffffff 12px,
+        #ffffff 24px
+    );
+    border: 2px solid #004080;
+    border-radius: 10px;
+    padding: 20px;
     margin-top: 30px;
-    padding-top: 20px;
-    border-top: 2px solid #ccc;
+    page-break-inside: avoid;
 }
 
-/* Tajuk utama */
 .main-title {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 15px 0;
     text-decoration: underline;
+    margin: 10px 0;
 }
 
-#preview h2 {
-    text-align: center;
-    margin-top: 10px;
-}
-
-#preview p {
-    margin: 6px 0;
-    font-size: 14px;
-}
-
-/* ===============================
-   GAMBAR LAPORAN (GRID 2x2)
-================================ */
 .gambar-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 tetap */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    margin-top: 10px;
 }
 
 .gambar-wrapper {
-    width: 100%;
-    height: 130px; /* SAIZ SESUAI PDF */
+    height: 130px;
     border: 1px solid #ccc;
-    border-radius: 6px;
     overflow: hidden;
-    background: #fafafa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .gambar-wrapper img {
@@ -168,41 +106,16 @@ form button:hover {
     object-fit: cover;
 }
 
-/* ===============================
-   PRINT – HANYA LAPORAN
-================================ */
-@media print {
-    body * {
-        visibility: hidden;
-    }
-
-    #preview,
-    #preview * {
-        visibility: visible;
-    }
-
-    #preview {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
+/* Butang */
+.action-bar {
+    text-align: center;
+    margin-top: 15px;
 }
 
-/* ===============================
-   MOBILE REFINEMENT
-================================ */
-@media (max-width: 500px) {
-    main {
-        padding: 15px;
-    }
-
-    .school-header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .gambar-wrapper {
-        height: 110px;
-    }
+/* PRINT */
+@media print {
+    body * { visibility: hidden; }
+    #preview, #preview * { visibility: visible; }
+    button { display: none !important; }
+    #preview { position: absolute; top: 0; width: 100%; }
 }
